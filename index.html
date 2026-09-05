@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BCCB — Prototipos de rediseño</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --green: #7eb551; --green-dark: #5a8a3a; --green-light: #eef6e6; --ink: #111827; --gray-600: #4b5563; --gray-400: #9ca3af; --gray-200: #e5e7eb; --gray-50: #f9fafb; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: var(--gray-50); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .wrap { width: min(1040px, 90vw); margin: 0 auto; padding: 64px 0 80px; }
+    header img { height: 48px; margin-bottom: 28px; }
+    h1 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; letter-spacing: -0.01em; margin-bottom: 10px; }
+    .intro { color: var(--gray-600); max-width: 64ch; margin-bottom: 40px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .card { display: block; background: #fff; border: 1px solid var(--gray-200); border-radius: 14px; padding: 26px 28px; text-decoration: none; color: inherit; transition: border-color .2s, box-shadow .2s, transform .2s; }
+    .card:hover { border-color: var(--green); box-shadow: 0 10px 30px rgba(126,181,81,.14); transform: translateY(-2px); }
+    .card .n { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: var(--green-light); color: var(--green-dark); font-weight: 700; font-size: .85rem; margin-bottom: 14px; }
+    .card h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+    .card p { color: var(--gray-600); font-size: .93rem; }
+    .card .tag { display: inline-block; margin-top: 14px; font-size: .78rem; font-weight: 600; color: var(--green-dark); }
+    .card.new { border-color: var(--green); }
+    .card.new .tag::before { content: 'Nueva · '; }
+    .note { margin-top: 40px; padding: 18px 22px; border-left: 3px solid var(--green); background: #fff; border-radius: 0 10px 10px 0; font-size: .9rem; color: var(--gray-600); }
+    .note strong { color: var(--ink); }
+    footer { margin-top: 32px; font-size: .82rem; color: var(--gray-400); }
+    @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } .wrap { padding: 40px 0 56px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="assets/fe00ac6f-11bb-4e68-b115-7908fc441568.png" alt="BCCB Cumplimiento Normativo">
+      <h1>Prototipos de rediseño de bccb.es</h1>
+      <p class="intro">Cuatro direcciones visuales para la misma web. Todas conservan los textos, los logotipos de clientes y los ocho protocolos tal y como aparecen en la web actual; cambia la presentación, no el mensaje.</p>
+    </header>
+
+    <div class="grid">
+      <a class="card" href="variant-1/">
+        <span class="n">1</span>
+        <h2>Corporate Trust</h2>
+        <p>Diseño corporativo clásico: rejilla limpia, tarjetas de servicio y jerarquía clara. La opción más sobria.</p>
+        <span class="tag">Inter · verde corporativo</span>
+      </a>
+      <a class="card" href="variant-2/">
+        <span class="n">2</span>
+        <h2>Editorial</h2>
+        <p>Enfoque de lectura: tipografía serif, columna estrecha y lista numerada de protocolos. Tono institucional.</p>
+        <span class="tag">EB Garamond · Inter</span>
+      </a>
+      <a class="card" href="variant-3/">
+        <span class="n">3</span>
+        <h2>Premium Modern</h2>
+        <p>Acabado más contemporáneo: fondos alternos, sección oscura de legislación, tarjetas con icono y CTA destacado.</p>
+        <span class="tag">Manrope · Inter</span>
+      </a>
+      <a class="card new" href="variant-4/">
+        <span class="n">4</span>
+        <h2>Narrativa</h2>
+        <p>Recorrido guiado en cuatro pasos: por qué ahora (legislación) → qué exige la ley y a quién aplica (protocolos) → quiénes somos y cómo trabajamos → contacto.</p>
+        <span class="tag">Newsreader · Inter</span>
+      </a>
+    </div>
+
+    <p class="note"><strong>Nota:</strong> los formularios son de demostración y no envían datos. El año del pie de página se actualiza automáticamente. Los enlaces legales apuntan a las páginas actuales de bccb.es.</p>
+    <footer>© <span data-year>2026</span> BCCB. Prototipos internos para revisión.</footer>
+  </div>
+  <script>document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
+</body>
+</html>

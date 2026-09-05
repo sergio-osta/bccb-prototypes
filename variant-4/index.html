@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BCCB — Cumplimiento Normativo</title>
+  <meta name="description" content="BCCB: asesoramiento de calidad basado en la experiencia. Implantación de protocolos de obligado cumplimiento normativo para empresas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #7eb551;
+      --green-light: #edf5e4;
+      --green-dark: #5a8a3a;
+      --green-pale: #b9dc9a;
+      --ink: #101b15;
+      --paper: #f6f7f3;
+      --white: #ffffff;
+      --gray-100: #f2f4f0;
+      --gray-200: #e3e7df;
+      --gray-400: #8d968e;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--gray-800);
+      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 500;
+      color: var(--gray-900);
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+    }
+
+    .container { width: min(1120px, 90vw); margin: 0 auto; }
+
+    /* ── Header ── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .nav-bar .logo { height: 44px; }
+    .nav-bar nav { display: flex; gap: 28px; align-items: center; }
+    .nav-bar nav a { color: var(--gray-800); text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+    .nav-bar nav a:hover { color: var(--green-dark); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--green); color: var(--white); }
+    .btn-primary:hover { background: var(--green-dark); }
+    .btn-outline-light { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.45); }
+    .btn-outline-light:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      color: var(--white);
+      background: var(--ink) url("../assets/hero-handshake.jpeg") center 40% / cover no-repeat;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(100deg, rgba(16,27,21,0.93) 0%, rgba(16,27,21,0.8) 45%, rgba(16,27,21,0.5) 100%);
+    }
+    .hero-inner { padding: 112px 0 80px; max-width: 720px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-pale);
+      margin-bottom: 22px;
+    }
+    .eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--green); }
+    .hero h1 { color: var(--white); font-size: clamp(2.6rem, 5.4vw, 4.3rem); margin-bottom: 22px; }
+    .hero .lead { font-size: 1.12rem; line-height: 1.75; color: rgba(255,255,255,0.82); max-width: 600px; }
+    .hero .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+    .story-index { border-top: 1px solid rgba(255,255,255,0.18); }
+    .story-index ol { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); }
+    .story-index li + li { border-left: 1px solid rgba(255,255,255,0.18); }
+    .story-index a {
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+      padding: 20px 24px 20px 0;
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .story-index li + li a { padding-left: 24px; }
+    .story-index a:hover { color: var(--white); }
+    .story-index .n { font-family: 'Newsreader', Georgia, serif; font-size: 1.35rem; color: var(--green); line-height: 1; }
+    .story-index small { display: block; color: rgba(255,255,255,0.55); font-size: 0.8rem; font-weight: 400; margin-top: 2px; }
+
+    /* ── Logos ── */
+    .logos-section { padding: 36px 0; border-bottom: 1px solid var(--gray-200); }
+    .logos-inner { display: flex; align-items: center; gap: 40px; }
+    .logos-section .label {
+      flex: none;
+      max-width: 180px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-400);
+      line-height: 1.5;
+    }
+    .logo-row { display: flex; flex: 1; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .logo-row img { height: 44px; max-width: 130px; object-fit: contain; filter: grayscale(1); opacity: 0.7; transition: all 0.3s; }
+    .logo-row a:hover img { filter: grayscale(0); opacity: 1; }
+
+    /* ── Sections ── */
+    .section { padding: 104px 0; }
+    .kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 18px;
+    }
+    .kicker .n { font-family: 'Newsreader', Georgia, serif; font-size: 1.15rem; letter-spacing: 0; color: var(--green); }
+    .section h2 { font-size: clamp(2rem, 3.4vw, 2.8rem); margin-bottom: 20px; }
+    .section p { color: var(--gray-600); font-size: 1.02rem; line-height: 1.8; }
+    .section p + p { margin-top: 16px; }
+    .section strong { color: var(--gray-900); font-weight: 600; }
+
+    /* ── 01 Legislación ── */
+    .legis { background: var(--paper); }
+    .legis-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: start; }
+    .legis-aside { position: sticky; top: 96px; display: grid; gap: 16px; }
+    .stat-card { background: var(--ink); color: var(--white); border-radius: 16px; padding: 32px; }
+    .stat-card .big { font-family: 'Newsreader', Georgia, serif; font-size: clamp(3rem, 5vw, 4.4rem); line-height: 1; color: var(--green-pale); }
+    .stat-card .what { margin-top: 12px; font-size: 1rem; color: rgba(255,255,255,0.85); line-height: 1.5; }
+    .stat-card .ref { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+    .legis-aside img { width: 100%; height: 240px; object-fit: cover; border-radius: 16px; }
+
+    /* ── 02 Protocolos ── */
+    .protocols-header { max-width: 680px; margin-bottom: 48px; }
+    .obligations { list-style: none; border-top: 1px solid var(--gray-200); }
+    .obligation {
+      display: grid;
+      grid-template-columns: 72px 1fr 230px;
+      gap: 28px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .obligation .n { font-family: 'Newsreader', Georgia, serif; font-size: 1.6rem; color: var(--green); line-height: 1; padding-top: 6px; }
+    .obligation h3 { font-size: 1.5rem; margin-bottom: 10px; }
+    .obligation p { font-size: 0.97rem; }
+    .applies { font-size: 0.86rem; color: var(--gray-600); border-left: 2px solid var(--green); padding-left: 14px; align-self: start; line-height: 1.5; }
+    .applies b { display: block; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 4px; font-weight: 600; }
+    .applies span { color: var(--gray-900); font-weight: 500; }
+
+    /* ── 03 Quiénes somos ── */
+    .about { background: var(--ink); }
+    .about .kicker { color: var(--green-pale); }
+    .about h2 { color: var(--white); }
+    .about p { color: rgba(255,255,255,0.75); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-grid img { width: 100%; height: 380px; object-fit: cover; border-radius: 16px; }
+    .steps {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 72px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+    }
+    .steps .n { font-family: 'Newsreader', Georgia, serif; font-size: 1.15rem; color: var(--green); }
+    .steps h3 { color: var(--white); font-size: 1.3rem; margin: 10px 0 8px; }
+    .steps p { font-size: 0.93rem; }
+
+    /* ── 04 Contacto ── */
+    .contact { background: var(--paper); }
+    .contact-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 64px; align-items: start; }
+    .contact-form {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 32px;
+      display: grid;
+      gap: 16px;
+      box-shadow: 0 8px 30px rgba(16,27,21,0.05);
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      font: inherit;
+      font-size: 0.95rem;
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(126,181,81,0.15);
+    }
+    .contact-form .btn { width: 100%; }
+
+    /* ── Footer ── */
+    .site-footer { padding: 28px 0; border-top: 1px solid var(--gray-200); font-size: 0.84rem; color: var(--gray-400); }
+
+    /* ── Reveal ── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .legis-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .legis-aside { position: static; }
+      .obligation { grid-template-columns: 48px 1fr; gap: 20px; }
+      .obligation .applies { grid-column: 2; }
+      .steps { grid-template-columns: 1fr; gap: 28px; }
+      .story-index ol { grid-template-columns: 1fr; }
+      .story-index li + li { border-left: none; border-top: 1px solid rgba(255,255,255,0.18); }
+      .story-index li + li a { padding-left: 0; }
+      .section { padding: 72px 0; }
+      .hero-inner { padding: 80px 0 56px; }
+      .logos-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .logos-section .label { max-width: none; }
+      .logo-row { justify-content: flex-start; }
+      .about-grid img { height: 280px; }
+    }
+  </style>
+  <link rel="stylesheet" href="../shared/site.css">
+</head>
+<body>
+
+  <header class="site-header" id="top">
+    <div class="container nav-bar">
+      <a href="#top" aria-label="BCCB, inicio"><img src="../assets/fe00ac6f-11bb-4e68-b115-7908fc441568.png" alt="BCCB Cumplimiento Normativo" class="logo"></a>
+      <nav id="main-nav" aria-label="Principal">
+        <a href="#legislacion">Legislación</a>
+        <a href="#protocolos">Servicios</a>
+        <a href="#quienes">Quiénes somos</a>
+        <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Cumplimiento normativo</p>
+        <h1>Asesoramiento de calidad basado en la experiencia</h1>
+        <p class="lead">Nuestra filosofía se basa en la calidad, la experiencia, el compromiso y la confianza de nuestros clientes para garantizar el éxito de un trabajo en equipo.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contacto">Contáctanos</a>
+          <a class="btn btn-outline-light" href="#legislacion">Más información</a>
+        </div>
+      </div>
+      <nav class="story-index" aria-label="Recorrido">
+        <ol class="container">
+          <li><a href="#legislacion"><span class="n">01</span><span>Legislación actual<small>Por qué ahora</small></span></a></li>
+          <li><a href="#protocolos"><span class="n">02</span><span>Protocolos obligatorios<small>Qué exige la ley</small></span></a></li>
+          <li><a href="#quienes"><span class="n">03</span><span>Quiénes somos<small>Cómo trabajamos</small></span></a></li>
+        </ol>
+      </nav>
+    </section>
+
+    <!-- Empresas que confían en nosotros -->
+    <section class="logos-section">
+      <div class="container logos-inner">
+        <p class="label">Empresas que confían en nosotros</p>
+        <div class="logo-row">
+          <a class="logo-link" href="https://www.journalmoon.com/" target="_blank" rel="noopener" title="Journal Moon"><img src="../assets/447003b0-96b0-4a17-a4e8-4e1b6bea8c13.png" alt="Journal Moon" loading="lazy"></a>
+          <a class="logo-link" href="https://www.outinup.com/" target="_blank" rel="noopener" title="Outinup"><img src="../assets/00559ca8-0449-4613-9e74-08c651444207.png" alt="Outinup" loading="lazy"></a>
+          <a class="logo-link" href="https://es.tarifaspinout.com/" target="_blank" rel="noopener" title="Tarifa Spin Out"><img src="../assets/563fef50-144b-46ad-8449-e61df39ce89d.png" alt="Tarifa Spin Out" loading="lazy"></a>
+          <a class="logo-link" href="https://aberture.com/" target="_blank" rel="noopener" title="Aberture"><img src="../assets/e2df38be-b1c5-45d6-8b8e-9d11d082fcec.png" alt="Aberture" loading="lazy"></a>
+          <a class="logo-link" href="https://tecnijanda.com/" target="_blank" rel="noopener" title="Tecnijanda Informática"><img src="../assets/3390a699-79a1-45e1-93b3-b75c8e04c921.png" alt="Tecnijanda Informática" loading="lazy"></a>
+          <a class="logo-link" href="https://www.academica.school/" target="_blank" rel="noopener" title="Academica International Studies"><img src="../assets/9acaabd7-fb13-4648-99f8-ddd3ee24b98c.svg" alt="Academica International Studies" loading="lazy"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 · Legislación actual -->
+    <section id="legislacion" class="section legis">
+      <div class="container legis-grid">
+        <div class="reveal">
+          <p class="kicker"><span class="n">01</span> Legislación actual</p>
+          <h2>La responsabilidad ha pasado del sector público a la empresa</h2>
+          <p>La tendencia legislativa existente, a nivel nacional, europeo y global ha creado un nuevo concepto en medidas de seguridad de la empresa.</p>
+          <p>Se han implantado numerosas reformas y se traslada la Responsabilidad sobre las Medidas de Control y Represión de delitos e infracciones, del sector público al privado, ahora las empresas son las responsables, mediante <strong>obligaciones sancionables</strong>.</p>
+          <p>Así entre otras, la publicación del Reglamento Europeo 679/2016 de <strong>Protección de Datos</strong> de carácter personal, desarrollado en España por la Ley 3/2018, Ley de Protección de Datos Personales y garantía de los derechos con <strong>nuevas obligaciones empresariales y sanciones</strong> ante el incumplimiento del 2 al 4% de la facturación global de la empresa.</p>
+          <p><strong>BCCB en su afán por dar el mejor servicio e informar de la protección necesaria y el cumplimiento legal satisfactorio</strong>, les ofrece la posibilidad de realizar un estudio a medida relativo al cumplimiento normativo obligatorio.</p>
+          <p>Cada cliente tiene sus propias obligaciones y necesidades dependiendo de la actividad, y de su condición de persona física o jurídica.</p>
+        </div>
+        <aside class="legis-aside reveal">
+          <div class="stat-card">
+            <div class="big">2–4%</div>
+            <p class="what">de la facturación global de la empresa: sanciones ante el incumplimiento en materia de protección de datos.</p>
+            <p class="ref">Reglamento (UE) 2016/679 &middot; Ley Orgánica 3/2018 (LOPDGDD)</p>
+          </div>
+          <img src="../assets/31b4aba6-c997-434b-ab44-b21115e27913.jpeg" alt="Balanza y mazo de juez sobre una mesa" loading="lazy">
+        </aside>
+      </div>
+    </section>
+
+    <!-- 02 · Protocolos -->
+    <section id="protocolos" class="section">
+      <div class="container">
+        <div class="protocols-header reveal">
+          <p class="kicker"><span class="n">02</span> Servicios</p>
+          <h2>Protocolos de obligado cumplimiento normativo</h2>
+          <p>Ofrecemos los siguientes protocolos de obligado cumplimiento normativo. Cada cliente tiene sus propias obligaciones y necesidades dependiendo de la actividad, y de su condición de persona física o jurídica.</p>
+        </div>
+        <ol class="obligations">
+          <li class="obligation reveal" id="protocolo-datos">
+            <div class="n" aria-hidden="true">01</div>
+            <div>
+              <h3>Protección de datos</h3>
+              <p>Todo el que posea datos de personas físicas identificadas o identificables: clientes, pacientes, empleados, proveedores, usuarios de páginas web… etc. deberá implantar un Protocolo de Protección de Datos de carácter personal. Reglamento (UE) 2016/679 de 27 de abril de 2016 (GDPR) y la Ley Orgánica 3/2018 de 5 de diciembre (LOPDGDD).</p>
+            </div>
+            <aside class="applies"><b>Aplica a</b><span>Cualquier empresa que posea datos de personas físicas: clientes, pacientes, empleados, proveedores o usuarios web.</span></aside>
+          </li>
+          <li class="obligation reveal" id="protocolo-delito">
+            <div class="n" aria-hidden="true">02</div>
+            <div>
+              <h3>Prevención del delito</h3>
+              <p>Con la reforma del Código penal y de la Ley de Sociedades de capital, las empresas deben implantar un plan de prevención del delito, que permita controlar o detectar irregularidades en sus empleados y directivos y así evitar una posible responsabilidad penal.</p>
+            </div>
+            <aside class="applies"><b>Aplica a</b><span>Empresas y sociedades de capital, para evitar una posible responsabilidad penal.</span></aside>
+          </li>
+          <li class="obligation reveal" id="protocolo-blanqueo">
+            <div class="n" aria-hidden="true">03</div>
+            <div>
+              <h3>Blanqueo de capitales</h3>
+              <p>Numerosa normativa internacional, europea y española regula la Prevención del Blanqueo de Capitales y Financiación del Terrorismo. Las organizaciones que realicen determinadas actividades, son sujetos obligados en prevenir el blanqueo de capitales y deben establecer un protocolo concreto con este fin.</p>
+            </div>
+            <aside class="applies"><b>Aplica a</b><span>Organizaciones que realizan determinadas actividades (sujetos obligados).</span></aside>
+          </li>
+          <li class="obligation reveal" id="protocolo-denuncias">
+            <div class="n" aria-hidden="true">04</div>
+            <div>
+              <h3>Canal de denuncias</h3>
+              <p>La legislación actual establece la necesidad de contar con un canal de denuncias todas las entidades jurídicas privadas que tengan 50 o más trabajadores, las Administraciones públicas en general y los sujetos obligados a implantar un protocolo de prevención del blanqueo de capitales y financiación del terrorismo, según el Código Penal y Directiva (UE) 2019/1937, traspuesta en España en la Ley 2/2023 obligatoria desde el 13 de marzo de 2023.</p>
+            </div>
+            <aside class="applies"><b>Aplica a</b><span>Entidades privadas con 50 o más trabajadores, Administraciones públicas y sujetos obligados en materia de blanqueo.</span></aside>
+          </li>
+          <li class="obligation reveal" id="protocolo-acoso">
+            <div class="n" aria-hidden="true">05</div>
+            <div>
+              <h3>Acoso</h3>
+              <p>Las organizaciones están obligadas a establecer un procedimiento de prevención y actuación frente al acoso sexual y el acoso por razón de sexo, según la Constitución Española, el Estatuto de los Trabajadores, el RD 901/2020, de 13 de octubre y la Ley 15/2022 del 12 de julio.</p>
+            </div>
+            <aside class="applies"><b>Aplica a</b><span>Todas las organizaciones.</span></aside>
+          </li>
+          <li class="obligation reveal" id="protocolo-igualdad">
+            <div class="n" aria-hidden="true">06</div>
+            <div>
+              <h3>Plan de igualdad</h3>
+              <p>Las empresas de 50 o más trabajadores, deberán implantar un Plan de Igualdad que garantice la igualdad de trato y oportunidades entre mujeres y hombres en el empleo y la ocupación. Regulado en la Constitución Española, Ley Orgánica 3/2007 y Real Decreto-Ley 6/2019.</p>
+            </div>
+            <aside class="applies"><b>Aplica a</b><span>Empresas de 50 o más trabajadores.</span></aside>
+          </li>
+          <li class="obligation reveal" id="protocolo-prl">
+            <div class="n" aria-hidden="true">07</div>
+            <div>
+              <h3>Prevención de riesgos laborales</h3>
+              <p>La Ley de Prevención de Riesgos Laborales tiene por objeto promover la seguridad y la salud de los trabajadores. En estos momentos tras la pandemia del Coronavirus, más que nunca, es imprescindible tener implantado un Plan de Prevención de Riesgos Laborales.</p>
+            </div>
+            <aside class="applies"><b>Aplica a</b><span>Toda empresa con trabajadores a su cargo.</span></aside>
+          </li>
+          <li class="obligation reveal" id="protocolo-appcc">
+            <div class="n" aria-hidden="true">08</div>
+            <div>
+              <h3>Protocolo APPCC (higiene de los alimentos)</h3>
+              <p>El Reglamento Europeo (CE) nº 852/2004 relativo a la higiene de los alimentos, refuerzan la necesidad y obligatoriedad de que las empresas alimentarias apliquen un sistema de autocontrol basado en los principios del Análisis de Peligros y Puntos de Control Crítico (APPCC). En España, el Real Decreto 3484/2000, de 29 de diciembre, establece las normas de higiene para la elaboración, distribución y comercio de comidas preparadas, en restaurantes, comedores de restauración social, cafeterías, bares y venta minorista de comidas preparadas.</p>
+            </div>
+            <aside class="applies"><b>Aplica a</b><span>Empresas alimentarias: restaurantes, comedores, cafeterías, bares y venta minorista de comidas preparadas.</span></aside>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 03 · Quiénes somos -->
+    <section id="quienes" class="section about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="reveal">
+            <p class="kicker"><span class="n">03</span> Quiénes somos</p>
+            <h2>Profesionales cuya experiencia es su mejor baza</h2>
+            <p>BCCB es una empresa formada por profesionales cuya experiencia es su mejor baza. Nuestros conocimientos avanzados y en constante actualización nos permiten ofrecer todo tipo de servicios enfocados a atender sus obligaciones como empresario con la implantación de protocolos que acrediten la debida diligencia y control según el imperativo legal. Nuestra clientela representa un amplio abanico de distintos sectores.</p>
+            <p>Nuestra filosofía se ha basado durante años en la calidad, la experiencia, el compromiso y la confianza de nuestros clientes para garantizar el éxito de un trabajo en equipo.</p>
+          </div>
+          <img class="reveal" src="../assets/c4587ba7-900d-43ef-81a1-6e5f38033ab6.jpeg" alt="Equipo de BCCB en una reunión de trabajo" loading="lazy">
+        </div>
+        <ol class="steps">
+          <li class="reveal">
+            <span class="n">Paso 1</span>
+            <h3>Estudio a medida</h3>
+            <p>Analizamos las obligaciones y necesidades de su empresa según la actividad y su condición de persona física o jurídica.</p>
+          </li>
+          <li class="reveal">
+            <span class="n">Paso 2</span>
+            <h3>Implantación de protocolos</h3>
+            <p>Implantamos los protocolos de obligado cumplimiento normativo que corresponden a su actividad.</p>
+          </li>
+          <li class="reveal">
+            <span class="n">Paso 3</span>
+            <h3>Debida diligencia y control</h3>
+            <p>Protocolos que acreditan la debida diligencia y el control según el imperativo legal.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 04 · Contacto -->
+    <section id="contacto" class="section contact">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <p class="kicker"><span class="n">04</span> Contacto</p>
+          <h2>Contáctanos</h2>
+          <p>Para más información pueden contactar directamente con nosotros a través de este formulario o mandando un email a <a class="contact-email" href="mailto:bccb@bccb.es">bccb@bccb.es</a>.</p>
+          <p><strong>BCCB en su afán por dar el mejor servicio e informar de la protección necesaria y el cumplimiento legal satisfactorio</strong>, les ofrece la posibilidad de realizar un estudio a medida relativo al cumplimiento normativo obligatorio.</p>
+        </div>
+        <form class="contact-form" data-demo-form novalidate>
+          <div class="form-row">
+            <label>Nombre *<input type="text" name="nombre" required autocomplete="given-name"></label>
+            <label>Apellidos *<input type="text" name="apellidos" required autocomplete="family-name"></label>
+          </div>
+          <div class="form-row">
+            <label>Email *<input type="email" name="email" required autocomplete="email"></label>
+            <label>Teléfono *<input type="tel" name="telefono" required autocomplete="tel"></label>
+          </div>
+          <label>Nombre de la empresa *<input type="text" name="empresa" required autocomplete="organization"></label>
+          <label>Mensaje<textarea name="mensaje" rows="5"></textarea></label>
+          <label class="check"><input type="checkbox" name="privacidad" required><span>Acepto la <a href="https://www.bccb.es/politica-de-privacidad" target="_blank" rel="noopener">Política de Privacidad</a> *</span></label>
+          <button class="btn btn-primary" type="submit">Enviar</button>
+          <p class="form-note" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span data-year>2026</span> BCCB. Todos los derechos reservados.</p>
+      <nav class="footer-links" aria-label="Legal">
+        <a href="https://www.bccb.es/politica-de-privacidad">Política de Privacidad</a>
+        <a href="https://www.bccb.es/aviso-legal">Aviso Legal</a>
+        <a href="https://www.bccb.es/politica-de-cookies">Política de Cookies</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../shared/site.js"></script>
+</body>
+</html>

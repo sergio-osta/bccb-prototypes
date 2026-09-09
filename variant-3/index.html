@@ -422,6 +422,7 @@
 
     .protocol-card { grid-column: span 2; }
     .protocol-card.span-3 { grid-column: span 3; }
+    .protocol-card.span-6 { grid-column: span 6; }
 
     /* ── Contact ── */
     .contact-section { background: var(--gray-50); }
@@ -497,7 +498,7 @@
         grid-template-columns: 1fr;
       }
 
-      .protocol-card, .protocol-card.span-3 { grid-column: auto; }
+      .protocol-card, .protocol-card.span-3, .protocol-card.span-6 { grid-column: auto; }
 
       .hero { padding: 48px 0; }
       .section { padding: 56px 0; }
@@ -594,6 +595,7 @@
             <li><a href="#protocolo-igualdad">Plan de igualdad</a></li>
             <li><a href="#protocolo-prl">Prevención de riesgos laborales</a></li>
             <li><a href="#protocolo-appcc">Protocolo APPCC (higiene de los alimentos)</a></li>
+            <li><a href="#protocolo-ia">Inteligencia artificial (Reglamento de IA)</a></li>
           </ul>
           <a class="more-link" href="#protocolos">Más información <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           <div class="about-images">
@@ -654,22 +656,27 @@
           <article class="protocol-card" id="protocolo-acoso">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
             <h3>Acoso</h3>
-            <p>Las organizaciones están obligadas a establecer un procedimiento de prevención y actuación frente al acoso sexual y el acoso por razón de sexo, según la Constitución Española, el Estatuto de los Trabajadores, el RD 901/2020, de 13 de octubre y la Ley 15/2022 del 12 de julio.</p>
+            <p>Las organizaciones están obligadas a establecer un procedimiento de prevención y actuación frente al acoso sexual y el acoso por razón de sexo, según la Constitución Española, el Estatuto de los Trabajadores, el RD 901/2020, de 13 de octubre y la Ley 15/2022 del 12 de julio. Además, la Ley 4/2023, de 28 de febrero («Ley Trans»), desarrollada por el Real Decreto 1026/2024, obliga a las empresas de más de 50 personas trabajadoras a contar con un Plan LGTBI: un conjunto planificado de medidas y recursos para lograr un entorno laboral inclusivo, libre de discriminación y acoso, que garantice la igualdad de trato y de oportunidades de las personas LGTBI, incluido un protocolo específico de actuación frente al acoso o la violencia contra estas personas.</p>
           </article>
           <article class="protocol-card" id="protocolo-igualdad">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
             <h3>Plan de igualdad</h3>
             <p>Las empresas de 50 o más trabajadores, deberán implantar un Plan de Igualdad que garantice la igualdad de trato y oportunidades entre mujeres y hombres en el empleo y la ocupación. Regulado en la Constitución Española, Ley Orgánica 3/2007 y Real Decreto-Ley 6/2019.</p>
           </article>
-          <article class="protocol-card span-3" id="protocolo-prl">
+          <article class="protocol-card" id="protocolo-prl">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></svg></div>
             <h3>Prevención de riesgos laborales</h3>
             <p>La Ley de Prevención de Riesgos Laborales tiene por objeto promover la seguridad y la salud de los trabajadores. En estos momentos tras la pandemia del Coronavirus, más que nunca, es imprescindible tener implantado un Plan de Prevención de Riesgos Laborales.</p>
           </article>
-          <article class="protocol-card span-3" id="protocolo-appcc">
+          <article class="protocol-card" id="protocolo-appcc">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></div>
             <h3>Protocolo APPCC (higiene de los alimentos)</h3>
             <p>El Reglamento Europeo (CE) nº 852/2004 relativo a la higiene de los alimentos, refuerzan la necesidad y obligatoriedad de que las empresas alimentarias apliquen un sistema de autocontrol basado en los principios del Análisis de Peligros y Puntos de Control Crítico (APPCC). En España, el Real Decreto 3484/2000, de 29 de diciembre, establece las normas de higiene para la elaboración, distribución y comercio de comidas preparadas, en restaurantes, comedores de restauración social, cafeterías, bares y venta minorista de comidas preparadas.</p>
+          </article>
+          <article class="protocol-card" id="protocolo-ia">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+            <h3>Inteligencia artificial (Reglamento de IA)</h3>
+            <p>El Reglamento (UE) 2024/1689, de 13 de junio de 2024, por el que se establecen normas armonizadas en materia de inteligencia artificial, impone obligaciones a las empresas que desarrollen o utilicen sistemas de IA. Desde el 2 de febrero de 2025 se aplican la prohibición de determinadas prácticas y el deber de alfabetización en materia de IA (art. 4): toda empresa que utilice sistemas de IA debe garantizar que su personal cuenta con la formación y los conocimientos suficientes. Las obligaciones de transparencia y las exigidas a los sistemas de alto riesgo (por ejemplo, en selección de personal, evaluación de trabajadores o acceso a servicios esenciales) se aplican de forma escalonada a partir de agosto de 2026. Las sanciones pueden alcanzar los 35 millones de euros o el 7% de la facturación global anual. Un inventario de los sistemas de IA en uso, su clasificación por nivel de riesgo y un plan de alfabetización, coordinados con el protocolo de protección de datos, permiten acreditar la debida diligencia.</p>
           </article>
         </div>
       </div>

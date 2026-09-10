@@ -41,6 +41,10 @@
   .nav-bar nav a.btn { margin-top: 8px; justify-content: center; }
 }
 
+/* ── Primary button in the header: white text like every other primary button ── */
+.nav-bar nav a.btn-primary,
+.nav-bar nav a.btn-primary:hover { color: var(--white); }
+
 /* ── Client logos (linked) ─────────────────────────────────────────── */
 .logo-link {
   display: block;

@@ -242,14 +242,14 @@
     .logo-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      gap: 16px;
+      gap: 8px;
     }
 
     .logo-grid img {
       width: 100%;
       height: 72px;
       object-fit: contain;
-      padding: 14px;
+      padding: 14px 10px;
       background: var(--gray-50);
       border-radius: 12px;
       filter: grayscale(1);
@@ -286,9 +286,15 @@
       align-items: start;
     }
 
-    .about-split h2 {
-      position: sticky;
-      top: 100px;
+    .section-photo {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1400 / 1083;
+      object-fit: cover;
+      margin-top: 28px;
+      border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
     }
 
     .about-images {
@@ -486,6 +492,11 @@
     .section strong { color: var(--gray-900); font-weight: 600; }
     .legis-section strong { color: var(--white); }
 
+    /* ── Optical sizing of individual client logos ── */
+    .logo-grid a[data-logo="tarifa-spin-out"] img { padding: 4px; }
+    .logo-grid a[data-logo="clinica-dental-arual"] img { padding: 12px 2px; }
+    .logo-grid a[data-logo="bmotion-audiovisual"] img { padding: 20px 24px; }
+
     /* ── Justified text (client preference) ── */
     .hero .lead,
     .about-split p,
@@ -576,12 +587,12 @@
       <div class="container">
         <p class="label">Empresas que confían en nosotros</p>
         <div class="logo-grid">
-          <a class="logo-link" href="https://www.academica.school/" target="_blank" rel="noopener" title="Academica International Studies"><img src="../assets/9acaabd7-fb13-4648-99f8-ddd3ee24b98c.svg" alt="Academica International Studies" loading="lazy"></a>
-          <a class="logo-link" href="https://es.tarifaspinout.com/" target="_blank" rel="noopener" title="Tarifa Spin Out"><img src="../assets/563fef50-144b-46ad-8449-e61df39ce89d.png" alt="Tarifa Spin Out" loading="lazy"></a>
-          <a class="logo-link" href="https://tecnijanda.com/" target="_blank" rel="noopener" title="Tecnijanda Informática"><img src="../assets/3390a699-79a1-45e1-93b3-b75c8e04c921.png" alt="Tecnijanda Informática" loading="lazy"></a>
-          <a class="logo-link" href="https://clinicadentalarual.es/" target="_blank" rel="noopener" title="Clínica Dental Arual"><img src="../assets/arual.png" alt="Clínica Dental Arual" loading="lazy"></a>
-          <a class="logo-link" href="https://www.bmotionav.com/" target="_blank" rel="noopener" title="Bmotion Audiovisual"><img src="../assets/bmotion.png" alt="Bmotion Audiovisual" loading="lazy"></a>
-          <a class="logo-link" href="https://jidercomunicacion.com/" target="_blank" rel="noopener" title="Jider Comunicación"><img src="../assets/jider-comunicacion.png" alt="Jider Comunicación" loading="lazy"></a>
+          <a class="logo-link" data-logo="academica-international-studies" href="https://www.academica.school/" target="_blank" rel="noopener" title="Academica International Studies"><img src="../assets/academica-dark.svg" alt="Academica International Studies" loading="lazy"></a>
+          <a class="logo-link" data-logo="tarifa-spin-out" href="https://es.tarifaspinout.com/" target="_blank" rel="noopener" title="Tarifa Spin Out"><img src="../assets/563fef50-144b-46ad-8449-e61df39ce89d.png" alt="Tarifa Spin Out" loading="lazy"></a>
+          <a class="logo-link" data-logo="tecnijanda-informatica" href="https://tecnijanda.com/" target="_blank" rel="noopener" title="Tecnijanda Informática"><img src="../assets/3390a699-79a1-45e1-93b3-b75c8e04c921.png" alt="Tecnijanda Informática" loading="lazy"></a>
+          <a class="logo-link" data-logo="clinica-dental-arual" href="https://clinicadentalarual.es/" target="_blank" rel="noopener" title="Clínica Dental Arual"><img src="../assets/arual.png" alt="Clínica Dental Arual" loading="lazy"></a>
+          <a class="logo-link" data-logo="bmotion-audiovisual" href="https://www.bmotionav.com/" target="_blank" rel="noopener" title="Bmotion Audiovisual"><img src="../assets/bmotion.png" alt="Bmotion Audiovisual" loading="lazy"></a>
+          <a class="logo-link" data-logo="jider-comunicacion" href="https://jidercomunicacion.com/" target="_blank" rel="noopener" title="Jider Comunicación"><img src="../assets/jider-comunicacion.png" alt="Jider Comunicación" loading="lazy"></a>
         </div>
       </div>
     </section>
@@ -591,6 +602,7 @@
       <div class="container about-split">
         <div>
           <h2>Quiénes somos</h2>
+          <img class="section-photo" src="../assets/equipo-bccb.jpg" alt="Equipo de BCCB en una reunión de trabajo" width="1400" height="1083" loading="lazy">
         </div>
         <div>
           <p>BCCB es una empresa formada por profesionales cuya experiencia es su mejor baza. Nuestros conocimientos avanzados y en constante actualización nos permiten ofrecer todo tipo de servicios enfocados a atender sus obligaciones como empresario con la implantación de protocolos que acrediten la debida diligencia y control según el imperativo legal. Nuestra clientela representa un amplio abanico de distintos sectores.</p>
@@ -608,10 +620,6 @@
             <li><a href="#protocolo-ia">Inteligencia artificial (Reglamento de IA)</a></li>
           </ul>
           <a class="more-link" href="#protocolos">Más información <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          <div class="about-images">
-            <img src="../assets/c4587ba7-900d-43ef-81a1-6e5f38033ab6.jpeg" alt="Equipo de BCCB en una reunión de trabajo">
-            <img src="../assets/31b4aba6-c997-434b-ab44-b21115e27913.jpeg" alt="Balanza y mazo de juez sobre una mesa">
-          </div>
         </div>
       </div>
     </section>
@@ -621,6 +629,7 @@
       <div class="container legis-split">
         <div>
           <h2>Legislación actual</h2>
+          <img class="section-photo" src="../assets/31b4aba6-c997-434b-ab44-b21115e27913.jpeg" alt="Balanza y mazo de juez sobre una mesa" width="1400" height="1083" loading="lazy">
         </div>
         <div>
           <p>La tendencia legislativa existente, a nivel nacional, europeo y global ha creado un nuevo concepto en medidas de seguridad de la empresa.</p>
@@ -686,7 +695,7 @@
           <article class="protocol-card" id="protocolo-ia">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
             <h3>Inteligencia artificial (Reglamento de IA)</h3>
-            <p>El Reglamento (UE) 2024/1689 de Inteligencia Artificial impone obligaciones a toda empresa que desarrolle o utilice sistemas de IA. Desde febrero de 2025 rigen la prohibición de determinadas prácticas y el deber de alfabetización en IA del personal; las obligaciones de transparencia y las de los sistemas de alto riesgo se aplican de forma escalonada desde agosto de 2026. Las sanciones pueden alcanzar el 7% de la facturación global anual.</p>
+            <p>El Reglamento (UE) 2024/1689 de Inteligencia Artificial impone obligaciones a toda empresa que desarrolle o utilice sistemas de IA. Desde febrero de 2025 rige la prohibición de determinadas prácticas y el deber de alfabetización en IA del personal; las obligaciones de transparencia y las de los sistemas de alto riesgo se aplican de forma escalonada desde agosto de 2026. Las sanciones pueden alcanzar el 7% de la facturación global anual.</p>
           </article>
         </div>
       </div>

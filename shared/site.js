@@ -110,7 +110,26 @@
   });
 
   /* 5. Demo form ---------------------------------------------------------- */
+  // Spanish validation messages: the browser would otherwise use its own UI language (often English).
+  function spanishValidation(form) {
+    var MSG = {
+      missing: 'Por favor, rellene este campo.',
+      email: 'Introduzca una dirección de email válida, por ejemplo nombre@empresa.es.',
+      privacy: 'Debe aceptar la Política de Privacidad para enviar el formulario.'
+    };
+    form.querySelectorAll('input, textarea').forEach(function (el) {
+      el.addEventListener('invalid', function () {
+        el.setCustomValidity('');
+        if (el.validity.valueMissing) el.setCustomValidity(el.type === 'checkbox' ? MSG.privacy : MSG.missing);
+        else if (el.validity.typeMismatch) el.setCustomValidity(MSG.email);
+      });
+      var clear = function () { el.setCustomValidity(''); };
+      el.addEventListener('input', clear);
+      el.addEventListener('change', clear);
+    });
+  }
   document.querySelectorAll('form[data-demo-form]').forEach(function (form) {
+    spanishValidation(form);
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var note = form.querySelector('.form-note');
